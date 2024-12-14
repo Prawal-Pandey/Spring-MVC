@@ -47,7 +47,18 @@ public class HomeController {
 
 		LocalDateTime now = LocalDateTime.now();
 		modelAndView.addObject("time", now);
-
+		
+		
+		
+		List<String> lang = new ArrayList<String>();
+		lang.add("english");
+		lang.add("hindi");
+		lang.add("urdu");
+		
+		modelAndView.addObject("lang",lang);
+//				for ( String l : lang) {
+//					System.out.println(l);
+//				}
 //		setting the view name
 		modelAndView.setViewName("help");
 
