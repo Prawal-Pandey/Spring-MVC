@@ -1,10 +1,11 @@
 package springmvc.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ContactController {
@@ -16,13 +17,22 @@ public class ContactController {
 	}
 
 	@RequestMapping(path = "/processform", method = RequestMethod.POST)
-	public String processForm(HttpServletRequest request) {
+	public String processForm(
+			@RequestParam(name ="email" , required=true)String email, 
+			@RequestParam(name = "name" , required=true)String name, 
+			@RequestParam(name ="password", required = false)String password, Model model) {
 
-		String email = request.getParameter("email");
 		System.out.println(email);
 
-		String name = request.getParameter("name");
 		System.out.println(name);
-		return "processform";
+
+		System.out.println(password);
+		
+		model.addAttribute("email", email);
+		model.addAttribute("name", name);
+		model.addAttribute("password",password);
+		
+		
+		return "success";
 	}
 }
