@@ -9,6 +9,8 @@
 </head>
 <body>
 
-	<h1>${email }<br> ${name }<br> ${password}<br></h1>
+	<h1>${user.email }<br> ${user.name }<br>
+		${user.password}<br>
+	</h1>
 </body>
 </html>

@@ -10,26 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/first")
 public class HomeController {
-
-	// Handle /home request
-	@RequestMapping("/home")
-	public String home(Model model) {
-		System.out.println("this is home url");
-
-		model.addAttribute("name", "Rains");
-
-		List<String> friends = new ArrayList<String>();
-
-		friends.add("Rajesh");
-		friends.add("Suresh");
-		friends.add("Prawal");
-
-		model.addAttribute("list", friends);
-
-		return "index"; // This will map to /WEB-INF/views/index.jsp
-	}
 
 	@RequestMapping("/about")
 	public String about() {
@@ -48,14 +29,14 @@ public class HomeController {
 
 		LocalDateTime now = LocalDateTime.now();
 		modelAndView.addObject("time", now);
-		
-		
-		
-		List<String> lang = new ArrayList<String>();
+
+
+
+		List<String> lang = new ArrayList<>();
 		lang.add("english");
 		lang.add("hindi");
 		lang.add("urdu");
-		
+
 		modelAndView.addObject("lang",lang);
 //				for ( String l : lang) {
 //					System.out.println(l);
@@ -64,5 +45,22 @@ public class HomeController {
 		modelAndView.setViewName("help");
 
 		return modelAndView;
+	}
+
+	// Handle /home request
+	@RequestMapping("/home")
+	public String home(Model model) {
+		System.out.println("this is home url");
+
+		model.addAttribute("name", "Rains");
+
+		List<String> friends = new ArrayList<>();
+		friends.add("Rajesh");
+		friends.add("Suresh");
+		friends.add("Prawal");
+
+		model.addAttribute("list", friends);
+
+		return "index"; // This will map to /WEB-INF/views/index.jsp
 	}
 }
