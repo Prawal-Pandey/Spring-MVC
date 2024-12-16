@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Process Form Details</title>
 </head>
-<body>
-
+<body style="color: orange; background-color: black">
+	<h1 style="color: green; background-color: black">${msg }</h1>
 	<h1>${user.email }<br> ${user.name }<br>
 		${user.password}<br>
 	</h1>

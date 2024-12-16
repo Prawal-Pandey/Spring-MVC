@@ -29,8 +29,8 @@ public class ContactController {
 	@RequestMapping(path = "/processform", method = RequestMethod.POST)
 	public String processForm(@ModelAttribute("user") User user, Model model) {
 		System.out.println(user);
-		this.UserService.createUser(user);
-
+		int createdUser = this.UserService.createUser(user);
+		model.addAttribute("msg", "User Created with ID" + createdUser);
 //		model.addAttribute("user",user);
 		return "success";
 
