@@ -1,5 +1,8 @@
 package springmvc.controller;
 
+import springmvc.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +13,9 @@ import springmvc.model.User;
 
 @Controller
 public class ContactController {
+
+	@Autowired
+	private UserService UserService;
 
 	@ModelAttribute
 	public void commonDataForModel(Model model) {
@@ -23,6 +29,7 @@ public class ContactController {
 	@RequestMapping(path = "/processform", method = RequestMethod.POST)
 	public String processForm(@ModelAttribute("user") User user, Model model) {
 		System.out.println(user);
+		this.UserService.createUser(user);
 
 //		model.addAttribute("user",user);
 		return "success";

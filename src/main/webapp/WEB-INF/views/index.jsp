@@ -22,7 +22,6 @@
 		<%=name%></h1>
 
 
-	<a href="contact.jsp"><button>Contact Page</button></a>
 
 	<%
 	List<String> friends = (List<String>) request.getAttribute("list");
